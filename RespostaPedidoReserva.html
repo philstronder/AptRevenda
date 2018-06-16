@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://mobirise.com/bootstrap-4-theme/registration-form-template.html -->
+<html class="desktop mbr-site-loaded">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Site made with Mobirise Website Builder v4.4.1, https://mobirise.com -->
+  
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" href="https://mobirise.com/bootstrap-4-theme/assets/images/logo2.png" type="image/x-icon">
+      <meta name="description" content="Bootstrap 4 Registration Form Template - Free Download">
+      <title>Validação de reserva</title>
+      <link rel="stylesheet" href="./bootstrap/mobirise-icons.css">
+      <link rel="stylesheet" href="./bootstrap/tether.min.css">
+      <link rel="stylesheet" href="./bootstrap/style.css">
+      <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="./bootstrap/bootstrap-grid.min.css">
+      <link rel="stylesheet" href="./bootstrap/bootstrap-reboot.min.css">
+      <link rel="stylesheet" href="./bootstrap/style(1).css">
+      <link rel="stylesheet" href="./bootstrap/minicart-theme.css">
+      <link rel="stylesheet" href="./bootstrap/style(2).css">
+      <link rel="stylesheet" href="./bootstrap/mbr-additional.css" type="text/css">
+
+        <style type="text/css" id="#jarallax-clip-1">#jarallax-container-1 {
+           clip: rect(0 1903px 318.21875px 0);
+           clip: rect(0, 1903px, 318.21875px, 0);
+        }</style><style type="text/css" id="#jarallax-clip-0">#jarallax-container-0 {
+           clip: rect(0 1903px 462.703125px 0);
+           clip: rect(0, 1903px, 462.703125px, 0);
+        }</style>
+    </head>
+    
+<body>
+    <script src="./bootstrap/jquery.min.js.download"></script>
+    <script src="./bootstrap/jquery.mask.min.js"></script>
+    <script src="./bootstrap/jquery.easing.min.js.download"></script>
+    <script src="./bootstrap/jquery.touch-swipe.min.js.download"></script>
+    <script>
+        $(document).ready(function() {
+            var IdReserva = LerParametroQuerystring("IdReserva");
+            CarregarDadosReserva(IdReserva);
+                PopularDados(null); //Mock dados form
+            
+            
+            //AJAX submit
+            $("#frmSubmit").submit(function(event){
+                
+                //Cancela o submit padrão do form
+                event.preventDefault();
+            
+                var post_url = $(this).attr("action");
+                var request_method = $(this).attr("method");
+                var form_data = $(this).serialize();
+
+                $.ajax({
+                    url: post_url,
+                    type: request_method,
+                    data: form_data
+                }).done(function(response){
+                    ExibirMensagemRetornoOk();
+                }).fail(function(response){
+                  ExibirMensagemErroEnvio();
+                }).always(function(){
+                    //alert("always!");
+                });
+                
+                
+            });
+
+                        
+        });
+        
+        function CarregarDadosReserva(id){
+                var post_url = "services/CarregarDadosPedidoReserva?Id=" + id;
+                var request_method = "POST";
+                //var form_data = $(this).serialize();
+
+                $.ajax({
+                    /*
+                    url: post_url,
+                    type: request_method,
+                    data: form_data*/
+                    url: post_url,
+                    type: request_method
+                }).done(function(response){
+                    PopularDados(response);
+                }).fail(function(response){
+                  //alert(response);
+                }).always(function(){
+                    //alert("always!");
+                });
+                            
+        }
+
+        function ExibirMensagemRetornoOk(){
+            $("#dvFormSucesso").removeAttr("hidden");
+        }
+        
+        function ExibirMensagemErroEnvio(){
+            $("#dvErrosValidacao").removeAttr("hidden");
+        }
+        
+        function PopularDados(response){
+            $("#Nome").html("Felipe Carvalho");
+            $("#Email").html("felipevale@gmail.com");
+            $("#Telefone").html("(21) 98218-5825");
+            $("#Endereco").html("Rua Siqueira Campos, 60 apt 601");
+            $("#UF").html("RJ");
+            $("#Municipio").html("Rio de Janeiro");
+            $("#Apartamento").html("Douglas");
+            $("#CheckIn").html("23/10/2018");
+            $("#HorarioCheckIn").html("14:00");
+            $("#CheckOut").html("28/10/2018");
+            $("#HorarioCheckOut").html("11:00");
+            $("#NumeroPessoas").html("5");
+        }
+        
+        function LerParametroQuerystring(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }        
+        
+    </script>    
+
+        
+    <script type="text/javascript" async="" src="./bootstrap/f.txt"></script>
+    <script type="text/javascript" async="" src="./bootstrap/analytics.js.download"></script>
+    <script async="" src="./bootstrap/gtm.js.download"></script>
+<!-- Google Analytics -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PFK425"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PFK425');</script>
+<!-- /Google Analytics -->
+
+
+<section class="menu cid-qv1frvgcz3" once="menu" id="menu1-71" data-rv-view="6448">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+    </nav>
+</section>
+
+    <!--
+<section class="header11 cid-qv7s3vO7EM" id="header11-72" data-rv-view="6450">
+    <div class="container align-left">
+        <div class="media-container-column mbr-white col-md-12">
+            <h1 class="mbr-section-title py-3 mbr-fonts-style display-1">                A partir de R$70 a diária.</h1>
+            <h5><p>* Preço por pessoa. Mínimo de 4 pessoas.</p></h5>
+            <h2>
+                <p>Caso o período esteja disponível, você receberá as instruções para concluir o seu pedido.</p>
+                <p>Preencha o formulário abaixo e garanta a sua estadia em Copacabana, o melhor bairro da Cidade Maravilhosa!</p>
+            </h2>
+        </div>
+    </div>
+</section>
+-->
+    
+<section class="mbr-section form1 cid-qv7s7YQkMT" id="form1-73" data-rv-view="6453">
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                    VERIFIQUE O PEDIDO</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" data-form-type="formoid">
+                    <!--<div data-form-alert="" hidden="">Verifique o seu e-mail para obter as instruções!</div>-->
+                    <div id="dvErrosValidacao" hidden="" class="alert alert-warning">
+                        Erro!
+                    </div>                
+                
+                    <div id="dvFormSucesso" hidden="" class="alert alert-success">
+                        Resposta enviada com sucesso!
+                    </div>
+            
+                    <form class="mbr-form" action="./services/InserirPedidoReserva.php" method="post"  id="frmSubmit">
+                        <div class="row row-sm-offset">
+                            <div class="col-md-4 multi-horizontal" data-for="Nome">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="Nome">Nome completo</label>
+                                    <span class="input-group-text" id="Nome"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal" data-for="Email">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="Email">Email</label>
+                                    <span class="input-group-text" id="Email"></span>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 multi-horizontal" data-for="Telefone">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="Telefone">Telefone</label>
+                                    <span class="input-group-text" id="Telefone"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal" data-for="Endereco">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="Telefone">Endereço</label>
+                                    <span class="input-group-text" id="Endereco"></span>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 multi-horizontal" data-for="UF">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="UF">Estado</label>
+                                    <span class="input-group-text" id="UF"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal" data-for="Municipio">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="Municipio">Municipio</label>
+                                    <span class="input-group-text" id="Municipio"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 multi-horizontal" data-for="Apartamento">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="Apartamento">Apartamento</label>
+                                    <span class="input-group-text" id="Apartamento"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 multi-horizontal" data-for="CheckIn">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="CheckIn">Data de entrada</label>
+                                    <span class="input-group-text" id="CheckIn"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4 multi-horizontal" data-for="HorarioCheckIn">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="CheckIn">Horário de entrada</label>
+                                    <span class="input-group-text" id="HorarioCheckIn"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 multi-horizontal" data-for="CheckOut">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="CheckOut">Data de saída</label>
+                                    <span class="input-group-text" id="CheckOut"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal" data-for="HorarioCheckOut">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="HorarioCheckOut">Horário de saída</label>
+                                    <span class="input-group-text" id="HorarioCheckOut"></span>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class="col-md-4 multi-horizontal" data-for="NumeroPessoas">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="NumeroPessoas">Número de pessoas</label>
+                                    <span class="input-group-text" id="NumeroPessoas"></span>
+                                </div>
+                            </div>  
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-md-4 multi-horizontal" data-for="Disponivel">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" >Disponível?</label>
+                                    <label for="DisponivelSim">Sim</label>
+                                    <input type="radio"  name="Disponivel" required="" id="DisponivelSim" value="Sim">
+                                    <label for="DisponivelNao">Não</label>
+                                    <input type="radio"  name="Disponivel" required="" id="DisponivelNao" value="Nao">
+                                </div>
+                            </div>          
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2 multi-horizontal" data-for="Preco">
+                                <label class="form-control-label mbr-fonts-style display-7" for="Preco">Preço (R$)</label>
+                                <input type="text" class="form-control" name="Preco"  id="Preco">
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 multi-horizontal" data-for="Preco">
+                                <label class="form-control-label mbr-fonts-style display-7" for="Comentarios">Comentários</label>
+                                <textarea id="Comentarios" class="form-control" name="Comentarios" ></textarea>
+                            </div>  
+                        </div>
+
+
+
+
+
+
+                        
+                    <div class="row">
+                        <div class="col-md-6 multi-horizontal" data-for="Preco">
+                            <span class="input-group-btn">
+                                <button href="" id="btnEnviar" class="btn btn-primary btn-form display-4">ENVIAR RESPOSTA</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+                    
+            </div>
+        </div>
+    </div>
+</section>
+    
+  
+
+        <div id="jarallax-container-1" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -100;">
+            <div style="background-position: 50% 50%; background-size: 100%; background-repeat: no-repeat; background-image: url(&quot;https://mobirise.com/bootstrap-4-theme/assets/images/background1.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 1903px; height: 1268.67px; overflow: hidden; pointer-events: none; margin-left: 0px; margin-top: -184.333px; visibility: visible; transform: translate3d(0px, 364.5px, 0px);"></div>
+        </div>
+
+
+
+        <script src="./bootstrap/popper.min.js.download"></script>
+        <script src="./bootstrap/tether.min.js.download"></script>
+        <script src="./bootstrap/bootstrap.min.js.download"></script>
+        <script src="./bootstrap/smooth-scroll.js.download"></script>
+        <script src="./bootstrap/script.min.js.download"></script>
+        <script src="./bootstrap/jarallax.min.js.download"></script>
+        <script src="./bootstrap/minicart.js.download"></script>
+        <script src="./bootstrap/minicart-customizer.js.download"></script>
+        <script src="./bootstrap/script.js.download"></script>
+        <script src="./bootstrap/f(1).txt"></script>
+    </body>
+</html>
