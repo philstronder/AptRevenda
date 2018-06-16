@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://mobirise.com/bootstrap-4-theme/registration-form-template.html -->
+<html class="desktop mbr-site-loaded">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Site made with Mobirise Website Builder v4.4.1, https://mobirise.com -->
+  
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" href="https://mobirise.com/bootstrap-4-theme/assets/images/logo2.png" type="image/x-icon">
+      <meta name="description" content="Bootstrap 4 Registration Form Template - Free Download">
+      <title>Pedidos de reserva</title>
+      <link rel="stylesheet" href="./bootstrap/mobirise-icons.css">
+      <link rel="stylesheet" href="./bootstrap/tether.min.css">
+      <link rel="stylesheet" href="./bootstrap/style.css">
+      <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+      <link rel="stylesheet" href="./bootstrap/bootstrap-grid.min.css">
+      <link rel="stylesheet" href="./bootstrap/bootstrap-reboot.min.css">
+      <link rel="stylesheet" href="./bootstrap/style(1).css">
+      <link rel="stylesheet" href="./bootstrap/minicart-theme.css">
+      <link rel="stylesheet" href="./bootstrap/style(2).css">
+      <link rel="stylesheet" href="./bootstrap/mbr-additional.css" type="text/css">
+
+        <style type="text/css" id="#jarallax-clip-1">#jarallax-container-1 {
+           clip: rect(0 1903px 318.21875px 0);
+           clip: rect(0, 1903px, 318.21875px, 0);
+        }</style><style type="text/css" id="#jarallax-clip-0">#jarallax-container-0 {
+           clip: rect(0 1903px 462.703125px 0);
+           clip: rect(0, 1903px, 462.703125px, 0);
+        }</style>
+    </head>
+    
+<body>
+    <script src="./bootstrap/jquery.min.js.download"></script>
+    <script src="./bootstrap/jquery.mask.min.js"></script>
+    <script src="./bootstrap/jquery.easing.min.js.download"></script>
+    <script src="./bootstrap/jquery.touch-swipe.min.js.download"></script>
+    <script>
+        $(document).ready(function() {
+            ListarPedidosReserva();
+            PopularDados(null); //Mock dados form
+            
+            
+            //AJAX submit
+            $("#frmSubmit").submit(function(event){
+                
+                //Cancela o submit padrão do form
+                event.preventDefault();
+            
+                var post_url = $(this).attr("action");
+                var request_method = $(this).attr("method");
+                var form_data = $(this).serialize();
+
+                $.ajax({
+                    url: post_url,
+                    type: request_method,
+                    data: form_data
+                }).done(function(response){
+                    ExibirMensagemRetornoOk();
+                }).fail(function(response){
+                  ExibirMensagemErroEnvio();
+                }).always(function(){
+                    //alert("always!");
+                });
+                
+                
+            });
+
+                        
+        });
+        
+        function ListarPedidosReserva(){
+                var post_url = "services/ListarPedidosReserva.php";
+                var request_method = "POST";
+                //var form_data = $(this).serialize();
+
+                $.ajax({
+                    /*
+                    url: post_url,
+                    type: request_method,
+                    data: form_data*/
+                    url: post_url,
+                    type: request_method
+                }).done(function(response){
+                    PopularDados(response);
+                }).fail(function(response){
+                  //alert(response);
+                }).always(function(){
+                    //alert("always!");
+                });
+                            
+        }
+
+        function ExibirMensagemRetornoOk(){
+            $("#dvFormSucesso").removeAttr("hidden");
+        }
+        
+        function ExibirMensagemErroEnvio(){
+            $("#dvErrosValidacao").removeAttr("hidden");
+        }
+        
+        function PopularDados(response){
+            $("#ID1").html("<a href='RespostaPedidoReserva.html?IdReserva=1'>1</a>");
+            $("#Apartamento1").html("Douglas");
+            $("#CheckIn1").html("23/10/2018");
+            $("#CheckOut1").html("28/10/2018");
+            $("#Nome1").html("Felipe Carvalho");
+            $("#NumeroPessoas1").html("5");
+            
+            $("#ID2").html("<a href='RespostaPedidoReserva.html?IdReserva=2'>2</a>");
+            $("#Apartamento2").html("Douglas");
+            $("#CheckIn2").html("23/10/2018");
+            $("#CheckOut2").html("28/10/2018");
+            $("#Nome2").html("Felipe Carvalho");
+            $("#NumeroPessoas2").html("5");
+            
+            $("#ID3").html("<a href='RespostaPedidoReserva.html?IdReserva=3'>3</a>");
+            $("#Apartamento3").html("Douglas");
+            $("#CheckIn3").html("23/10/2018");
+            $("#CheckOut3").html("28/10/2018");
+            $("#Nome3").html("Felipe Carvalho");
+            $("#NumeroPessoas3").html("5");
+        }
+        
+        function LerParametroQuerystring(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }        
+        
+    </script>    
+
+        
+    <script type="text/javascript" async="" src="./bootstrap/f.txt"></script>
+    <script type="text/javascript" async="" src="./bootstrap/analytics.js.download"></script>
+    <script async="" src="./bootstrap/gtm.js.download"></script>
+<!-- Google Analytics -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PFK425"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PFK425');</script>
+<!-- /Google Analytics -->
+
+
+<section class="menu cid-qv1frvgcz3" once="menu" id="menu1-71" data-rv-view="6448">
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+        <h1>VEM PRA COPACABANA</h1>
+    </nav>
+</section>
+
+    <!--
+<section class="header11 cid-qv7s3vO7EM" id="header11-72" data-rv-view="6450">
+    <div class="container align-left">
+        <div class="media-container-column mbr-white col-md-12">
+            <h1 class="mbr-section-title py-3 mbr-fonts-style display-1">                A partir de R$70 a diária.</h1>
+            <h5><p>* Preço por pessoa. Mínimo de 4 pessoas.</p></h5>
+            <h2>
+                <p>Caso o período esteja disponível, você receberá as instruções para concluir o seu pedido.</p>
+                <p>Preencha o formulário abaixo e garanta a sua estadia em Copacabana, o melhor bairro da Cidade Maravilhosa!</p>
+            </h2>
+        </div>
+    </div>
+</section>
+-->
+    
+<section class="mbr-section form1 cid-qv7s7YQkMT" id="form1-73" data-rv-view="6453">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                    NOVOS PEDIDOS</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-1 font-weight-bold">ID</div>
+            <div class="col-md-2 font-weight-bold" >Apartamento</div>
+            <div class="col-md-3 font-weight-bold">Nome</div>
+            <div class="col-md-2 font-weight-bold">Check In</div>
+            <div class="col-md-2 font-weight-bold">Check Out</div>
+            <div class="col-md-2 font-weight-bold">Pessoas</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-1"><span id="ID1"></span></div>
+            <div class="col-md-2"><span id="Apartamento1"></span></div>
+            <div class="col-md-3"><span id="Nome1"></span></div>
+            <div class="col-md-2"><span id="CheckIn1"></span></div>
+            <div class="col-md-2"><span id="CheckOut1"></span></div>
+            <div class="col-md-2"><span id="NumeroPessoas1"></span></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-1"><span id="ID2"></span></div>
+            <div class="col-md-2"><span id="Apartamento2"></span></div>
+            <div class="col-md-3"><span id="Nome2"></span></div>
+            <div class="col-md-2"><span id="CheckIn2"></span></div>
+            <div class="col-md-2"><span id="CheckOut2"></span></div>
+            <div class="col-md-2"><span id="NumeroPessoas2"></span></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-1"><span id="ID3"></span></div>
+            <div class="col-md-2"><span id="Apartamento3"></span></div>
+            <div class="col-md-3"><span id="Nome3"></span></div>
+            <div class="col-md-2"><span id="CheckIn3"></span></div>
+            <div class="col-md-2"><span id="CheckOut3"></span></div>
+            <div class="col-md-2"><span id="NumeroPessoas3"></span></div>
+        </div>
+    </div>
+</section>
+    
+  
+
+        <div id="jarallax-container-1" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -100;">
+            <div style="background-position: 50% 50%; background-size: 100%; background-repeat: no-repeat; background-image: url(&quot;https://mobirise.com/bootstrap-4-theme/assets/images/background1.jpg&quot;); position: fixed; top: 0px; left: 0px; width: 1903px; height: 1268.67px; overflow: hidden; pointer-events: none; margin-left: 0px; margin-top: -184.333px; visibility: visible; transform: translate3d(0px, 364.5px, 0px);"></div>
+        </div>
+
+
+
+        <script src="./bootstrap/popper.min.js.download"></script>
+        <script src="./bootstrap/tether.min.js.download"></script>
+        <script src="./bootstrap/bootstrap.min.js.download"></script>
+        <script src="./bootstrap/smooth-scroll.js.download"></script>
+        <script src="./bootstrap/script.min.js.download"></script>
+        <script src="./bootstrap/jarallax.min.js.download"></script>
+        <script src="./bootstrap/minicart.js.download"></script>
+        <script src="./bootstrap/minicart-customizer.js.download"></script>
+        <script src="./bootstrap/script.js.download"></script>
+        <script src="./bootstrap/f(1).txt"></script>
+    </body>
+</html>
